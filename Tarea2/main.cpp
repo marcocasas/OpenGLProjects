@@ -18,12 +18,10 @@ void lineSegment(void) {
 
 		//Fila superior de circulos.
 		glBegin(GL_LINE_LOOP);
-
-		for (double i = 0; i < 2 * PI; i += PI / 18) //<-- Change this Value
-			glVertex3f(250 - cos(i) * radius, 375 - sin(i) * radius, 0.0);
-
+			for (double i = 0; i < 2 * PI; i += PI / 18)
+				glVertex3f(250 - cos(i) * radius, 375 - sin(i) * radius, 0.0);
 		glEnd();
-		glFlush();
+		//glFlush();
 
 		glBegin(GL_LINE_LOOP);
 
@@ -117,6 +115,32 @@ void lineSegment(void) {
 		glFlush();
 	}
 
+	for (double r = 15; r > 7; r--) {
+		glColor3f(0.1412, 0.3333, 0.3176);
+		radius = r;
+
+		glBegin(GL_LINE_LOOP);
+			for (double i = 0; i < 2 * PI; i += PI / 18)
+				glVertex3f(250 - cos(i) * radius, 375 - sin(i) * radius, 0.0);
+		glEnd();
+
+		glBegin(GL_LINE_LOOP);
+		for (double i = 0; i < 2 * PI; i += PI / 18)
+			glVertex3f(250 - cos(i) * radius, 125 - sin(i) * radius, 0.0);
+		glEnd();
+
+		glBegin(GL_LINE_LOOP);
+		for (double i = 0; i < 2 * PI; i += PI / 18)
+			glVertex3f(125 - cos(i) * radius, 250 - sin(i) * radius, 0.0);
+		glEnd();
+
+		glBegin(GL_LINE_LOOP);
+		for (double i = 0; i < 2 * PI; i += PI / 18)
+			glVertex3f(375 - cos(i) * radius, 250 - sin(i) * radius, 0.0);
+		glEnd();
+
+		glFlush();
+	}
 }
 
 void main(int argc, char** argv) {
